@@ -14,7 +14,7 @@ password = "engagestemeb421"
 #URL for Website
 url = "https://www.instagram.com/"
 while forever:
-    time.sleep(60)
+    time.sleep(180)
     #Open Browser and Open Up Instragram
     try:
         driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
@@ -52,6 +52,6 @@ while forever:
         driver.implicitly_wait(7.5)
         for x in range(1, 11):
             driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div[2]/div/div/div[" + str(x) + "]/div[3]/button").click()
-            driver.implicitly_wait(random.randint(2,8))
+            driver.implicitly_wait(random.randint(8,16))
         time.sleep(1)
         driver.close()
