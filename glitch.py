@@ -1,11 +1,21 @@
 #Import Statements Needed For Program
-from selenium import webdriver
 import time
+from selenium import webdriver
+import random
 
-#Website for Editing Bot Page
-url = "https://glitch.com/edit/#!/insta-bot-akini?path=index.html%3A5%3A6"
-driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
-driver.get(url)
-time.sleep(5)
-driver.find_element_by_xpath("/html/body/div[3]/div[2]/main/div/section[4]/div[2]/article/div/div[1]/textarea ").send_keys("Hello")
+#Status Variables
+forever = True
 
+while forever:
+    for x in range(1, 121):
+        time.sleep(1)
+        print(x)
+    url = ["https://youtu.be/4sXXJRxGFhs", "https://youtu.be/aWYIDoh89es"]
+    driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
+    driver.get(url[random.randint(0,1)])
+    time.sleep(1)
+    driver.find_element_by_xpath("/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[4]/div[1]/div/div[1]/div/div/div/ytd-player/div/div/div[4]/button").click()
+    for x in range(1, 46):
+        time.sleep(1)
+        print(x)
+    driver.close()
