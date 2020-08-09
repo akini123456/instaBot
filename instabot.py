@@ -9,7 +9,7 @@ forever = True
 
 #User information
 username = "engagestemeastbrunswick"
-password = "engagestemeb421"
+password = ""
 
 #URL for Website
 url = "https://www.instagram.com/"
