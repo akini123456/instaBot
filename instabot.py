@@ -17,14 +17,15 @@ while forever:
     for x in range(1, 181):
         time.sleep(1)
         print(x)
+    print("-----------------------------------------------------------------------------------------------------------")
     #Open Browser and Open Up Instragram
     try:
         driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
         driver.get(url)
         instaOpen = True
+        print("Instagram Bot Online")
     except:
         print("Chromedriver Failure")
-
     if(instaOpen):
         #Log into Instrgram
         driver.implicitly_wait(10)
@@ -67,5 +68,9 @@ while forever:
                     driver.implicitly_wait(random.randint(8,16))
                 except:
                     print("No More Suggestions Available")
-            time.sleep(5)
+            print("-----------------------------------------------------------------------------------------------------------")
+            print("People were friended")
+            print("Task was done")
+            print("-----------------------------------------------------------------------------------------------------------")
+            time.sleep(1)
             driver.close()
