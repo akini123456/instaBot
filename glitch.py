@@ -7,7 +7,7 @@ import random
 forever = True
 
 while forever:
-    for x in range(1, 121):
+    for x in range(1, 60):
         time.sleep(1)
         print(x)
     url = ["https://youtu.be/4sXXJRxGFhs", "https://youtu.be/aWYIDoh89es"]
