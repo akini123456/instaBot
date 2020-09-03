@@ -8,7 +8,7 @@ instaOpen = False
 forever = True
 
 #User information
-username = "engagestemeastbrunswick"
+username = ""
 password = ""
 
 #URL for Website
@@ -20,7 +20,7 @@ while forever:
     print("-----------------------------------------------------------------------------------------------------------")
     #Open Browser and Open Up Instragram
     try:
-        driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
+        driver = webdriver.Chrome('FILE-PATH')
         driver.get(url)
         instaOpen = True
         print("Instagram Bot Online")
