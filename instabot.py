@@ -1,76 +1,53 @@
-#Import Statements Needed For Program
-from selenium import webdriver
+# Import Statements Needed For Program
 import time
-import random
+from selenium import webdriver
 
-#Status Variables
-instaOpen = False
+# Status Variables
 forever = True
 
-#User information
-username = ""
-password = ""
+# Username and Password
+username = "eb_stemandbuds"
+password = "MGGZ10585"
 
-#URL for Website
-url = "https://www.instagram.com/"
-while forever:
+# Instagram URL
+url = "https://instagram.com"
+
+while True:
+    # Waits 180 seconds
     for x in range(1, 181):
         time.sleep(1)
         print(x)
-    print("-----------------------------------------------------------------------------------------------------------")
-    #Open Browser and Open Up Instragram
-    try:
-        driver = webdriver.Chrome('FILE-PATH')
-        driver.get(url)
-        instaOpen = True
-        print("Instagram Bot Online")
-    except:
-        print("Chromedriver Failure")
-    if(instaOpen):
-        #Log into Instrgram
-        driver.implicitly_wait(10)
-        driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[1]/div/label/input").send_keys(username) #username
-        driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[2]/div/label/input").send_keys(password) #password
-        driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div").click() #Log in Button
 
-        #Auto-Login Denied
-        driver.implicitly_wait(15)
-        try:
-            driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button").click()
-        except:
-            print("That option doesn't exsist")
+    # Opens Instagram
+    driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
+    driver.get(url)
+    time.sleep(1)
 
-        #No Notifications
-        driver.implicitly_wait(5)
-        try:
-            driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]").click()
-        except:
-            print("That option doesn't exsist")
+    # Log into Instagram
+    driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[1]/div/label/input").send_keys(username)
+    driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[2]/div/label/input").send_keys(password)
+    driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button").click()
+    time.sleep(3)
 
-        #See All New Reccomendation
-        driver.implicitly_wait(5)
-        driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[2]/div[1]/a/div").click()
-        driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div[2]/div/div/div[1]/div[3]/button").click()
-        try:
-            driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[2]/button[2]").click()
-            print("Instagram found out im a bot")
-            print("Shut down for 10 minutes starts now!")
-            driver.close()
-            for x in range(1, 601):
-                time.sleep(1)
-                print(x)
-        except:
-            #Follow People
-            driver.implicitly_wait(7.5)
-            for x in range(2, 9):
-                try:
-                    driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div[2]/div/div/div[" + str(x) + "]/div[3]/button").click()
-                    driver.implicitly_wait(random.randint(8,16))
-                except:
-                    print("No More Suggestions Available")
-            print("-----------------------------------------------------------------------------------------------------------")
-            print("People were friended")
-            print("Task was done")
-            print("-----------------------------------------------------------------------------------------------------------")
-            time.sleep(1)
-            driver.close()
+    # No auto log in
+    driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button").click()
+    time.sleep(1.5)
+
+    # No notifications
+    driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]").click()
+    time.sleep(1.5)
+
+    # See all recommendations
+    driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[2]/div[1]/a/div").click()
+    time.sleep(1.5)
+
+    # Friend people
+    for x in range(1, 9):
+        driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div[2]/div/div/div["+ str(x) +"]/div[3]/button").click()
+        time.sleep(0.8)
+
+    # Waits 5 secs
+    time.sleep(5)
+
+    # Close Chrome
+    driver.close()
