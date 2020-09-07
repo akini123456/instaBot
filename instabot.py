@@ -6,8 +6,8 @@ from selenium import webdriver
 forever = True
 
 # Username and Password
-username = "eb_stemandbuds"
-password = "MGGZ10585"
+username = ""
+password = ""
 
 # Instagram URL
 url = "https://instagram.com"
@@ -19,7 +19,7 @@ while True:
         print(x)
 
     # Opens Instagram
-    driver = webdriver.Chrome('C:/Users/aryan/Downloads/chromedriver.exe')
+    driver = webdriver.Chrome('FILE_PATH')
     driver.get(url)
     time.sleep(1)
 
